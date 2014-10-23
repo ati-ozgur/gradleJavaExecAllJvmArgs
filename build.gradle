@@ -11,7 +11,7 @@ task(runJavaExecNormal, dependsOn: 'classes', type: JavaExec) {
 task(runJavaExecArgumentSetExample1, dependsOn: 'classes', type: JavaExec) {
     main = 'com.examples.AllJvmArgumentsInJavaExecBug'
     classpath = sourceSets.main.runtimeClasspath
-    //allJvmArgs = [ '-Xms10240m', '-Xmx20280m']
+    allJvmArgs = [ '-Xms10240m', '-Xmx20280m']
 
 }
 
