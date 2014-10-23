@@ -1,0 +1,30 @@
+// File: build.gradle
+apply plugin: 'java'
+
+task(runJavaExecNormal, dependsOn: 'classes', type: JavaExec) {
+    main = 'com.examples.AllJvmArgumentsInJavaExecBug'
+    classpath = sourceSets.main.runtimeClasspath
+
+}
+
+
+task(runJavaExecArgumentSetExample1, dependsOn: 'classes', type: JavaExec) {
+    main = 'com.examples.AllJvmArgumentsInJavaExecBug'
+    classpath = sourceSets.main.runtimeClasspath
+    //allJvmArgs = [ '-Xms10240m', '-Xmx20280m']
+
+}
+
+task(runJavaExecArgumentSetExample2, dependsOn: 'classes', type: JavaExec) {
+    main = 'com.examples.AllJvmArgumentsInJavaExecBug'
+    classpath = sourceSets.main.runtimeClasspath
+
+    List<String> argumentList = new ArrayList<String>();
+    argumentList.add('-Xms10240m')
+    argumentList.add('-Xmx20280m')
+    //allJvmArgs = argumentList
+}
+
+
+defaultTasks 'runJavaExecNormal','runJavaExecArgumentSetExample1','runJavaExecArgumentSetExample2'
+
